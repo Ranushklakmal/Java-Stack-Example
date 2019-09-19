@@ -1,0 +1,65 @@
+import java.util.*;
+
+ class StackX {
+
+	private int maxSize; //size of the stack array
+	private double[] stackArray;
+	private int top; // top of the stack
+	
+	public StackX(int s){
+		maxSize = s;
+		stackArray = new double [maxSize];
+		top = -1; //underflow no item
+	}
+	
+	public void push(double j){
+		
+		if(top == maxSize-1){
+			System.out.println("stack is full");
+		}
+		else{
+			stackArray[++top] = j;
+		}
+	}
+	
+	public double pop() // take item from top of stack    	
+	{      return stackArray[top--]; // access item, decrement top      
+	
+	}
+	
+	public double peek() {
+		
+		System.out.println("peek is :"+stackArray[top]);
+		return stackArray[top];
+	}
+	
+	public boolean isEmpty(){
+		return (top == -1);
+	}
+	
+	public boolean isFull(){
+		return (top == maxSize-1);
+	}
+	
+
+	
+	public static void main(String[] args) {
+		
+		StackX theStack = new StackX(5);
+		 theStack.push(20);
+		 theStack.push(40);
+		 theStack.push(60);
+		 theStack.push(80);
+		 theStack.push(100);
+		 theStack.pop();
+		 theStack.peek();
+		 
+		 while(!theStack.isEmpty()){
+			 double val = theStack.pop();
+				System.out.print(val);
+				System.out.print("\n");
+				
+		 }
+		
+	}
+}
